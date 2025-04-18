@@ -1,15 +1,10 @@
 import { ReactNode } from "react";
 import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend,
-  ReferenceLine,
-  ResponsiveContainer,
   LabelList,
+  Line,
+  LineChart,
+  YAxis
 } from "recharts";
 
 interface WindChartProps {

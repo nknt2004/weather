@@ -1,25 +1,16 @@
+import { ReactNode } from "react";
 import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
   CartesianGrid,
-  Tooltip,
-  Legend,
-  ReferenceLine,
-  ReferenceArea,
-  ResponsiveContainer,
-  LabelList,
   ComposedChart,
-  ScatterChart,
-  Scatter,
+  LabelList,
+  Line,
+  ReferenceArea,
+  YAxis
 } from "recharts";
 import { getWeather } from "../WeatherUtils";
-import { ReactNode } from "react";
 
-const now = new Date();
 const CustomizedDot = (props) => {
-  const { cx, cy, stroke, payload, value } = props;
+  const { cx, cy, payload } = props;
   if (payload.weatherCode === null) {
     return;
   }

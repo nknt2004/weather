@@ -3,13 +3,5 @@ import react from "@vitejs/plugin-react";
 import { cloudflare } from "@cloudflare/vite-plugin";
 
 export default defineConfig({
-  plugins: [react(), cloudflare()],
-  build: {
-    outDir: "dist",
-    rollupOptions: {
-      input: {
-        client: "src/client.tsx",
-      },
-    },
-  },
+  plugins: [react(), cloudflare()]
 });

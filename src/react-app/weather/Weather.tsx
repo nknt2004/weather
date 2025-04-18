@@ -1,4 +1,3 @@
-"use client";
 import { useEffect, useState } from "react";
 import Chart from "./Chart";
 import { getNextDate, getWeek, toDataset } from "./DataUtils";
@@ -24,7 +23,6 @@ export default function MyApp() {
     const { time, temperature_2m, wind_speed_10m, weather_code } = hourly;
     dataset = toDataset(time, temperature_2m, wind_speed_10m, weather_code);
 
-    const currentWeekDataset = [];
     currentWeek = getWeek(new Date(time[0]));
     // console.log(currentWeek[0].getTime(), currentWeek[6].getTime());
 
@@ -41,12 +39,12 @@ export default function MyApp() {
     <div>
       <Chart
         dataset={dataset}
-        domain={[currentWeek[0].getTime(), currentWeek[6].getTime() + day_ms]}
+        domain={[currentWeek[0]?.getTime(), currentWeek[6]?.getTime() + day_ms]}
       />
 
       <Chart
         dataset={dataset}
-        domain={[week2nd[0].getTime(), week2nd[6].getTime() + day_ms]}
+        domain={[week2nd[0]?.getTime(), week2nd[6]?.getTime() + day_ms]}
       />
     </div>
   );

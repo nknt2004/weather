@@ -16,10 +16,6 @@ export function toDataset(times, temperatures, winds, weatherCode) {
   });
 }
 
-function getCurrentWeekData(weatherData) {
-  const now = new Date();
-}
-
 export function getWeek(date) {
   const currentDay = date.getDay(); // Day of the week (0-6, Sunday to Saturday)
   const firstDayOfWeek = new Date(date);
