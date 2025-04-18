@@ -102,12 +102,12 @@ const CustomTooltip = ({ active, payload, title, children, child2nd }:CustomTool
   return null;
 };
 
-const ID = (Math.random() + 1).toString(36).substring(7);
-export default function Chart({ id = ID, dataset, domain }) {
+export default function Chart({ dataset, domain }) {
+  const id = (Math.random() + 1).toString(36).substring(7);
   return (
     <div style={{ margin: "1rem 0", width: "100%" }}>
       <ResponsiveContainer width={"100%"} height={160}>
-        <TempChart dataset={dataset}>
+        <TempChart syncID={id} dataset={dataset}>
           <Tooltip content={<TempTooltip />} />
           {XAxisTime(domain, true)}
           {CurrentTimeLine()}
