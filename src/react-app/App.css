@@ -6,6 +6,15 @@ body {
   font-family: sans-serif;
   margin: 20px;
   padding: 0;
+  background-color: #100f1c;
+  container-name: body;
+  font-size: 13px;
+}
+
+@media only screen and (max-width: 450px) {
+  body {
+    font-size: 10px;
+  }
 }
 
 h1 {
@@ -63,4 +72,12 @@ ul {
 .unit {
   font-size: 0.5rem;
   margin-right: 4px;
+}
+
+.chart-container {
+  margin: 1rem 0px;
+  width: 100%;
+  background: #1a1733;
+  padding: 0.25rem 1rem 1rem 0.5rem;
+  border-radius: 1rem;
 }

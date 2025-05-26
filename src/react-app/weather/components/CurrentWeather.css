@@ -1,0 +1,12 @@
+.current-weather {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #f0f0f0;
+}
+
+.current-temperature {
+  font-size: 2rem;
+  font-weight: bold;
+}

@@ -10,3 +10,8 @@ export function dateHour(dtime:number) {
       return "";
   }
 }
+
+export function hour(dtime:number) {
+  const d = new Date(dtime);
+  return d.getHours()+"";
+}
