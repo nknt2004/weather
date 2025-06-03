@@ -12,6 +12,11 @@ import { DateLines } from "./components/DateLines";
 import { CurrentTimeLine } from "./components/CurrentTimeLine";
 import { Precipitation } from "./components/Precipitation";
 import { TempTooltip } from "./components/TempTooltip";
+import { toISODate } from "./DataUtils";
+import { WeatherInfo } from "./WeatherUtils";
+import { DailyWeather } from "./Weather";
+import { Theme } from "./Theme";
+import { dayDate } from "./ChartUtils";
 
 export function Unit({ children }: { children: ReactNode }) {
   return <span className="unit">{children}</span>;
@@ -67,15 +72,63 @@ export const CustomTooltip = ({ active, payload, title, children, child2nd }: Cu
   return null;
 };
 
-export default function Chart({ dataset, domain }) {
+function WeatherDateTick(dailyData: DailyWeather[] | undefined, tickProp) {
+  const { x, y, payload } = tickProp;
+  const date = new Date(payload.value);
+  if (date.getHours() !== 12) {
+    return null; // Only show ticks for 12:00 PM
+  }
+
+  const dayDateStr = dayDate(payload.value);
+
+  if (!dailyData || !dailyData.length) {
+    return dayDateStr;
+  }
+
+  const dateKey = toISODate(date);
+  const weather = dailyData?.find((d) => d[dateKey])?.[dateKey]?.weather;
+  if (weather) {
+    return <g transform={`translate(${x},${y})`}>
+      <text
+        x={0}
+        y={0}
+        // dy={16} // Offset to position text below the image
+        textAnchor="middle"
+        fill={Theme.textPrimary}
+        fontSize={12}
+      >
+        {dayDateStr}
+      </text>
+      <image
+        href={weather.image}
+        x={-16} // Center the image horizontally (half of width)
+        y={-38} // Position above the text
+        textAnchor="middle"
+        width="32"
+        height="32"
+      />
+
+    </g>;
+  }
+
+  return dayDateStr
+}
+
+interface ChartProps {
+  dataset: any[];
+  domain: any;
+  dailyData?: DailyWeather[];
+}
+
+export default function Chart({ dataset, domain, dailyData }: ChartProps) {
   const id = (Math.random() + 1).toString(36).substring(7);
 
   return (
     <div className="chart-container">
       <ResponsiveContainer width={"100%"} height={160}>
-        <TempChart syncID={id} dataset={dataset}>
+        <TempChart syncID={id} dataset={dataset} top={15}>
           <Tooltip cursor={false} content={<TempTooltip />} />
-          {XAxisTime(domain)}
+          {XAxisTime({ domain, CustomTick: (tickProp) => WeatherDateTick(dailyData, tickProp) })}
           {CurrentTimeLine()}
           {DateLines(dataset[0].time)}
           {...Precipitation()}
@@ -86,7 +139,7 @@ export default function Chart({ dataset, domain }) {
         <WindChart syncID={id} dataset={dataset}>
           {/* <Tooltip labelFormatter={(v, n, p) => new Date(v).getHours()} /> */}
           <Tooltip content={<WindTooltip />} />
-          {XAxisTime(domain, true)}
+          {XAxisTime({ domain, hide: true })}
           {CurrentTimeLine()}
           {DateLines(dataset[0].time)}
         </WindChart>

@@ -18,7 +18,7 @@ export default function Weather24({ domain, dataset }: Weather24Props) {
     <ResponsiveContainer width={"100%"} height={120}>
       <TempChart dataset={dataset}>
         <Tooltip cursor={false} content={<TempTooltip />} />
-        {XAxisTime(domain, false, true, "bottom")}
+        {XAxisTime({ domain, hide: false, isHour: true, orientation: "bottom" })}
         {DateLines(dataset[0].time)}
         {...Precipitation()}
       </TempChart>

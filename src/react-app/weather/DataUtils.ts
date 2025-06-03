@@ -42,3 +42,9 @@ export function getNextDate(today: Date): Date {
   tomorrow.setDate(today.getDate() + 1);
   return tomorrow;
 }
+
+export function toISODate(date: Date): string {
+  if(!date) return "";
+  console.log(date);
+  return date.toISOString().split("T")[0];
+}

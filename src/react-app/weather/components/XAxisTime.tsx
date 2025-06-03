@@ -1,9 +1,19 @@
 import { XAxis } from "recharts";
-import { dateHour, hour } from "../ChartUtils";
+import { dayDate, hour } from "../ChartUtils";
 import { Theme } from "../Theme";
 import { AxisDomain } from "recharts/types/util/types";
+import React, { JSX } from "react";
 
-export function XAxisTime(domain: AxisDomain, hide = false, isHour = false, orientation: "top" | "bottom" = "top") {
+interface XAxisTimeProps {
+  domain: AxisDomain;
+  hide?: boolean;
+  isHour?: boolean;
+  orientation?: "top" | "bottom";
+  // formatter?: (value: number) => string | React.ReactNode;
+  CustomTick?: JSX.ElementType;
+}
+
+export function XAxisTime({ domain, hide = false, isHour = false, orientation = "top", CustomTick }: XAxisTimeProps) {
   return (
     <XAxis
       orientation={orientation}
@@ -11,8 +21,8 @@ export function XAxisTime(domain: AxisDomain, hide = false, isHour = false, orie
       scale={"linear"}
       dataKey="time"
       interval={isHour ? 0 : 11}
-      tickFormatter={isHour ? hour : dateHour}
-      tick={{ fontSize: "0.9em", fill: Theme.textPrimary }}
+      tickFormatter={isHour ? hour : dayDate}
+      tick={CustomTick ? <CustomTick /> : { fontSize: "0.9em", fill: Theme.textPrimary }}
       domain={domain}
       // allowDataOverflow={true}
       hide={hide}

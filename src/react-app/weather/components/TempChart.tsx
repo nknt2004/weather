@@ -40,6 +40,7 @@ interface TempChartProps {
   dataset: any; // Ideally, replace `any` with a proper dataset type
   width?: number;
   height?: number;
+  top?: number;
   children?: ReactNode;
 }
 
@@ -48,6 +49,7 @@ export function TempChart({
   dataset,
   width = 1200,
   height = 250,
+  top = 0,
   children,
 }: TempChartProps) {
   return (
@@ -56,7 +58,7 @@ export function TempChart({
       height={height}
       syncId={syncID}
       data={dataset}
-      margin={{ top: 0, bottom: 0, left: 5, right: 5 }}
+      margin={{ top: top, bottom: 0, left: 5, right: 5 }}
     >
       {/* <defs>
         <linearGradient

@@ -1,5 +1,5 @@
 const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-export function dateHour(dtime:number) {
+export function dayDate(dtime:number) {
   const d = new Date(dtime);
   switch (d.getHours()) {
     case 12:

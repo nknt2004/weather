@@ -1,22 +1,22 @@
-export function getWeather(weatherCode:number, hour = 8) {
+export function getWeather(weatherCode: number, hour = 8): WeatherInfo | undefined {
   if (typeof weatherCode === "undefined") return;
   if (hour > 6 && hour < 18) {
-    return WeatherCode[weatherCode].day;
+    return WeatherCode[weatherCode]?.day;
   }
-  return WeatherCode[weatherCode].night;
+  return WeatherCode[weatherCode]?.night;
 }
 
-interface WeatherInfo {
+export interface WeatherInfo {
   description: string;
   image: string;
 }
 
-interface WeatherEntry {
+export interface WeatherEntry {
   day: WeatherInfo;
   night: WeatherInfo;
 }
 
-interface WeatherCodeMap {
+export interface WeatherCodeMap {
   [code: number]: WeatherEntry;
 }
 
