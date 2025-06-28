@@ -8,7 +8,7 @@ import { getWeather, WeatherInfo } from "./WeatherUtils";
 
 export interface DailyWeather { [key: string]: { weather: WeatherInfo } }
 
-export default function MyApp() {
+export default function Weather({ lat, lon }: { lat: number; lon: number }) {
   const [data, setData] = useState<any>();
 
   async function fetchData() {
@@ -16,7 +16,7 @@ export default function MyApp() {
     const pastDays = today.getDay();
     const forecastDays = 14 - pastDays;
     const response = await fetch(
-      `https://api.open-meteo.com/v1/forecast?latitude=38.9822&longitude=-94.6708&daily=weather_code&hourly=temperature_2m,precipitation,wind_speed_10m&current=temperature_2m,apparent_temperature,weather_code&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch&past_days=${pastDays}&forecast_days=${forecastDays}`
+      `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&daily=weather_code&hourly=temperature_2m,precipitation,wind_speed_10m&current=temperature_2m,apparent_temperature,weather_code&timezone=auto&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch&past_days=${pastDays}&forecast_days=${forecastDays}`
     );
     setData(await response.json());
   }

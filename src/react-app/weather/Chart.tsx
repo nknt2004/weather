@@ -95,7 +95,7 @@ function WeatherDateTick(dailyData: DailyWeather[] | undefined, tickProp) {
         // dy={16} // Offset to position text below the image
         textAnchor="middle"
         fill={Theme.textPrimary}
-        fontSize={12}
+      // fontSize={10}
       >
         {dayDateStr}
       </text>

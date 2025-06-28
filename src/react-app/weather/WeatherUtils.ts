@@ -84,7 +84,7 @@ const WeatherCode:WeatherCodeMap = {
   51: {
     day: {
       description: "Light Drizzle",
-      image: "http://openweathermap.org/img/wn/09d@2x.png",
+      image: "/weather/drizzle.png",
     },
     night: {
       description: "Light Drizzle",
@@ -94,7 +94,7 @@ const WeatherCode:WeatherCodeMap = {
   53: {
     day: {
       description: "Drizzle",
-      image: "http://openweathermap.org/img/wn/09d@2x.png",
+      image: "/weather/drizzle.png",
     },
     night: {
       description: "Drizzle",
@@ -104,7 +104,7 @@ const WeatherCode:WeatherCodeMap = {
   55: {
     day: {
       description: "Heavy Drizzle",
-      image: "http://openweathermap.org/img/wn/09d@2x.png",
+      image: "/weather/drizzle.png",
     },
     night: {
       description: "Heavy Drizzle",
@@ -114,7 +114,7 @@ const WeatherCode:WeatherCodeMap = {
   56: {
     day: {
       description: "Light Freezing Drizzle",
-      image: "http://openweathermap.org/img/wn/09d@2x.png",
+      image: "/weather/drizzle.png",
     },
     night: {
       description: "Light Freezing Drizzle",
@@ -124,7 +124,7 @@ const WeatherCode:WeatherCodeMap = {
   57: {
     day: {
       description: "Freezing Drizzle",
-      image: "http://openweathermap.org/img/wn/09d@2x.png",
+      image: "/weather/drizzle.png",
     },
     night: {
       description: "Freezing Drizzle",
@@ -134,7 +134,7 @@ const WeatherCode:WeatherCodeMap = {
   61: {
     day: {
       description: "Light Rain",
-      image: "http://openweathermap.org/img/wn/10d@2x.png",
+      image: "/weather/rain.png",
     },
     night: {
       description: "Light Rain",
@@ -144,7 +144,7 @@ const WeatherCode:WeatherCodeMap = {
   63: {
     day: {
       description: "Rain",
-      image: "http://openweathermap.org/img/wn/10d@2x.png",
+      image: "/weather/rain.png",
     },
     night: {
       description: "Rain",
@@ -154,7 +154,7 @@ const WeatherCode:WeatherCodeMap = {
   65: {
     day: {
       description: "Heavy Rain",
-      image: "http://openweathermap.org/img/wn/10d@2x.png",
+      image: "/weather/rain.png",
     },
     night: {
       description: "Heavy Rain",
@@ -164,7 +164,7 @@ const WeatherCode:WeatherCodeMap = {
   66: {
     day: {
       description: "Light Freezing Rain",
-      image: "http://openweathermap.org/img/wn/10d@2x.png",
+      image: "/weather/rain.png",
     },
     night: {
       description: "Light Freezing Rain",
@@ -174,7 +174,7 @@ const WeatherCode:WeatherCodeMap = {
   67: {
     day: {
       description: "Freezing Rain",
-      image: "http://openweathermap.org/img/wn/10d@2x.png",
+      image: "/weather/rain.png",
     },
     night: {
       description: "Freezing Rain",
@@ -224,7 +224,7 @@ const WeatherCode:WeatherCodeMap = {
   80: {
     day: {
       description: "Light Showers",
-      image: "http://openweathermap.org/img/wn/09d@2x.png",
+      image: "/weather/drizzle.png",
     },
     night: {
       description: "Light Showers",
@@ -234,7 +234,7 @@ const WeatherCode:WeatherCodeMap = {
   81: {
     day: {
       description: "Showers",
-      image: "http://openweathermap.org/img/wn/09d@2x.png",
+      image: "/weather/drizzle.png",
     },
     night: {
       description: "Showers",
@@ -244,7 +244,7 @@ const WeatherCode:WeatherCodeMap = {
   82: {
     day: {
       description: "Heavy Showers",
-      image: "http://openweathermap.org/img/wn/09d@2x.png",
+      image: "/weather/drizzle.png",
     },
     night: {
       description: "Heavy Showers",
@@ -274,7 +274,7 @@ const WeatherCode:WeatherCodeMap = {
   95: {
     day: {
       description: "Thunderstorm",
-      image: "http://openweathermap.org/img/wn/11d@2x.png",
+      image: "/weather/thunderstorm.png",
     },
     night: {
       description: "Thunderstorm",
@@ -284,7 +284,7 @@ const WeatherCode:WeatherCodeMap = {
   96: {
     day: {
       description: "Light Thunderstorms With Hail",
-      image: "http://openweathermap.org/img/wn/11d@2x.png",
+      image: "/weather/thunderstorm.png",
     },
     night: {
       description: "Light Thunderstorms With Hail",
@@ -294,7 +294,7 @@ const WeatherCode:WeatherCodeMap = {
   99: {
     day: {
       description: "Thunderstorm With Hail",
-      image: "http://openweathermap.org/img/wn/11d@2x.png",
+      image: "/weather/thunderstorm.png",
     },
     night: {
       description: "Thunderstorm With Hail",
